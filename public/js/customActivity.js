@@ -166,7 +166,7 @@ define([
         }
     }
     function save() {
-        var name = $('#select1').val();
+        var name = $('#select1').find('option:selected').html();
         var value = getMessage();
         // 'payload' is initialized on 'initActivity' above.
         // Journey Builder sends an initial payload with defaults
@@ -178,6 +178,6 @@ define([
         connection.trigger('updateActivity', payload);
     }
     function getMessage() {
-        return $('#select1').val();
+        return $('#select1').find('option:selected').attr('value').trim();
     }
 });
